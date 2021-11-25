@@ -11,3 +11,16 @@ Deep Learning Systems Project Files
 * each csv name: cleaned_dataset_{id}.csv
 
 * dataset URL: https://www.kaggle.com/alphadraco/deepfoodie
+
+
+# Description of each column
+* Title: lower cased, no special characters
+* Instructions: lower cased, no word numbers
+* Cleaned_Ingredients: only words no numbers, probably from a many to one dictionary
+
+
+# model architectures to try out
+* Resnet50, EfficientNet
+* Different embeddings: Glove, embeddings from food datasets, 1M+ embeddings
+* Prediction Ranker
+
