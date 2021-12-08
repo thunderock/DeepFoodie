@@ -1,0 +1,165 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+\usepackage[caption = false]{subfig}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    }
+    
+\title{DeepFoodie (Prediction of Ingredients in presence of fuzzy labelled data)}
+\author{Ashutosh Tiwari, Khushboo Singh \\ \{ashutiwa, khusingh\}@iu.edu}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Introduction}
+The problem we are trying to address is figuring out ingredients/description/recipe by looking at a food item. This might be of interest to a person at a restaurant thinking of replicating same at home, or a just a curious foreigner trying to figure out features of food in front of him. If successful this has enormous potential, starting from dietary tracking to recommendation engines to allergy prevention.
+
+\section{Related Work}
+https://github.com/facebookresearch/, https://arxiv.org/pdf/1812.06164.pdf \\
+
+https://www.linkedin.com/posts/swiggy-in_swiggybytes-weareswiggy-swiggsterlife-activity-6857213135665844225-r1Wn
+
+\section{Objectives}
+In this project we are trying to figure out if there exists a feature mapping between image of a food item and it's ingredients. Similarly if, there exists a pattern in recipes for similar food items. 
+
+
+\section{Outline}
+
+\section{Resources Used}
+\subsection{Datasets}
+https://www.kaggle.com/pes12017000148/food-ingredients-and-recipe-dataset-with-images
+\subsubsection{Preprocessing Steps}
+
+\subsection{Pretrained Models}
+https://nlp.stanford.edu/projects/glove/ \\
+https://github.com/facebookresearch/inversecooking/ \\
+http://pic2recipe.csail.mit.edu/
+
+\section{Methodology}
+
+\subsection{Experiments}
+\subsection{Solution Architecture}
+\begin{figure}[H]
+\includegraphics[width=4.5in]{Screenshot from 2021-12-03 14-14-29.png}
+\caption{Solution Architecture}
+\end{figure}
+
+
+
+\section{Results}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| l | l | l | l |}
+
+\hline
+Model & best loss (15 iterations) \\ \hline
+eff1 & 0.0.02553 \\ \hline
+eff2 & 0.0.02479 \\ \hline
+eff3 & 0.0.02547\\ \hline
+eff4 & 0.0.02962\\ \hline
+eff5 & 0.0.02051\\ \hline
+eff6 & 0.0.02440\\ \hline
+eff7 & 0.0.02498\\ \hline
+XCP  & 0.0.02027\\ \hline
+RN50 & 0.0.01947\\ \hline
+ICPV2 & 0.0.04324\\ \hline
+VGG19 & 0.0.01973\\ \hline
+VGG16 & 0.0.01978\\ \hline
+RN101 & 0.0.01949\\ \hline
+\end{tabular}
+\end{center}
+\caption{\label{tab:table-4}only images}
+\end{table}
+
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| l | l | l | l |}
+
+\hline
+Model &	best loss (15 iterations)\\ \hline
+eff1 & 0.0.02689\\ \hline
+eff2 & 0.0.02496 \\ \hline
+eff3 & 0.0.02553 \\ \hline
+eff4 & 0.0.02362 \\ \hline
+eff5 & 0.0.02044\\ \hline
+eff6 & 0.0.01980\\ \hline
+eff7 & 0.0.01969 \\ \hline
+XCP &  0.0.01954 \\ \hline
+RN50 & 0.0.02022 \\ \hline
+
+\end{tabular}
+\end{center}
+\caption{\label{tab:table-4}images with 50D title embeddings }
+\end{table}
+
+\section{Conclusion}
+
+\section{References}
+
+
+
+\begin{itemize}
+    \item  Ashutosh Log #11-06-21-0806:
+
+
+Can experiment with their trained embeds. One thing to do is probably combine one shot with that and work on a better focussed classifier for a particular category, allergent
+Scratch last part, doesn't look like they predict ingredients but recipies. 
+\item Ashutosh log #11-06-21-2247
+Use multiple models and integrate them together.
+1 M+ weights trained food embeddings with food classifier, other trained only on ingresdients with resnet, ?? 
+Use verifiers, to rank outputs from different models.
+
+* model learnt and transferred from huggingface "food101"
+from datasets import load_dataset
+
+dataset = load_dataset("food101")
+\item Ashutosh log #11-27-21-0018
+* Results for transfer learning with few selected ones here. Probably should test out some predictions. 
+* Need to next try title embeddings - Glove and trained on recipes
+
+\end{itemize}
+
+
+Remaining try:
+* https://github.com/facebookresearch/inversecooking
+* http://pic2recipe.csail.mit.edu/
+* ingredients prediction ranker
+* improve our 13k list of ingredients
+
+Address prof's points:
+* SOTA
+* 
+
+
+Questions:
+* deadline something else in home
+* okay to copy code from documentation, open source code..for example to load facebook inverse cooking model from facebook.
+
+
+\end{document}
+
+* Notes:
+
+* calculate hit and miss in predictions 
+* correlation between ingredients, deficient nutrition,
